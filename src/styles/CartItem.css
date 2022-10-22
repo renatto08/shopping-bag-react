@@ -1,0 +1,11 @@
+.remove-item{
+    background-color: rgb(74, 74, 97);
+    color: #fff;
+    cursor: pointer;
+    padding: .6rem;
+    border-radius: 3px;
+}
+.quantity-button{
+    padding: .6em;
+    cursor:pointer;
+}

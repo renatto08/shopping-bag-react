@@ -1,0 +1,33 @@
+[
+  {
+    "id": 10,
+    "name": "Shirt Macarena",
+    "description": "primera blusa de prueba",
+    "price": 10.90,
+    "image": "/images/casaca-melany.jpg"
+
+  },
+  {
+    "id": 20,
+    "name": "Segunda blusa demito",
+    "description": "segunda blusa de prueba",
+    "price": 10.90,
+    "image": "/images/bl-antuanet.jpg"
+
+  },
+  {
+    "id": 21,
+    "name": "Vestido macarena",
+    "description": "elaborada en gasa",
+    "price": 89.90,
+    "image": "/images/vest-anely.jpg"
+
+  },
+  {
+    "id": 22,
+    "name": "Blusa Giany",
+    "description": "selaborada en chalis",
+    "price": 69.90,
+    "image": ""
+  }
+]

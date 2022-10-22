@@ -1,0 +1,75 @@
+
+.promotion{
+  display:grid;
+  justify-content: center;
+  align-content: center;
+  padding: 1em;
+  background-color: #e9e8e1;
+  font-size: .8em;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+.header{
+  display:grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  background-color: white;
+  align-items: center;
+  /* justify-items: stretch; */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+
+}
+.menu-icon{
+  min-width: 80px;
+  /* max-width: 200px; */
+  padding: .4em .4em .4em 1em;
+
+  cursor: pointer;
+}
+.bar{
+  display: block;
+  margin-bottom: .5em;
+  border-bottom: 2px solid black;
+  height: 100%;
+  width: 35px;
+
+}
+.logo{
+  text-align: center;
+
+}
+.logo a{
+  display: block;
+  font-weight: bolder;
+
+  font-size: 25px;
+  /* font-family: monospace; */
+  letter-spacing: .4em;
+  padding: .8em;
+  text-decoration: none;
+  color: #000;
+}
+.options{
+  display: flex;
+  position: relative;
+  justify-content: end;
+  padding: .8em;
+  gap: .8em
+
+}
+
+.search, .shoppingBagIcon{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.shoppingBagIcon{
+  margin-left: .8em;
+  /* border: 1px solid green; */
+}
+.shoppingBagIcon img {
+  height: 20px;
+  width: 20px;
+}

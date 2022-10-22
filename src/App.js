@@ -1,25 +1,85 @@
-import logo from './logo.svg';
+import { React, useState, useRef } from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import Product from './components/Product'
+import Cart from './components/Cart';
+import products from './data/products.json'
+import Header from './components/Header';
 
 function App() {
+  const [items, setItems] = useState([]);
+  const [productDetail, setproductDetail] = useState({});
+  const cartRef = useRef();
+  const addToBag = (name, price, id) => {
+    const value = items.find((item) => item.id === id)
+
+    if (value) {
+      const newQuantity = items.map((item) => {
+        if (item.id === id) item.quantity++;
+        return item;
+      });
+      setItems(newQuantity);
+    } else {
+      setItems([...items, { id, name, price, quantity: 1 }]);
+    }
+
+  }
+
+  const removeItemFromBag = (id) => {
+    const newListItems = items.filter((item) => {
+      return item.id !== id;
+    })
+    console.log(newListItems);
+    setItems(newListItems);
+  }
+  const manageQuantity = (id, type) => {
+    const newItemList = items.map((item) => {
+      if (item.id === id) {
+        if (type === 'decrease' && item.quantity === 1) return item;
+        type === 'increase' ? item.quantity++ : item.quantity--;
+      }
+      return item;
+    })
+    setItems(newItemList);
+  }
+
+  const viewDetail = (id) => {
+    console.log(id);
+    setproductDetail(products.find((item) => item.id === id));
+  }
+  const openCart = () => {
+    console.log('show carrito')
+    cartRef.current.style.display = 'block';
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="App" >
+      <Header openCart={openCart} />
+      <section className='section-products'>
+        {products.map((value) =>
+          <Product key={value.id}
+            name={value.name}
+            description={value.description}
+            price={value.price}
+            id={value.id}
+            image={value.image}
+            manageToBag={addToBag}
+            viewDetail={viewDetail}
+          />
+        )}
+      </section>
+      <Cart cartItems={items}
+        removeItemFromBag={removeItemFromBag}
+        manageQuantity={manageQuantity}
+        cartRef={cartRef}
+      />
+      <p>detalle de producto {productDetail.name}</p>
+
+
+
+    </div >
   );
+
 }
 
 export default App;
