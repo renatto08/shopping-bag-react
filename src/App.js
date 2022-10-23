@@ -1,9 +1,8 @@
 import { React, useState, useRef } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import Product from './components/Product'
+import Product from './components/Product';
 import Cart from './components/Cart';
-import products from './data/products.json'
+import products from './data/products.json';
 import Header from './components/Header';
 
 function App() {
@@ -48,7 +47,6 @@ function App() {
     setproductDetail(products.find((item) => item.id === id));
   }
   const openCart = () => {
-    console.log('show carrito')
     cartRef.current.style.display = 'block';
   }
 
@@ -73,10 +71,6 @@ function App() {
         manageQuantity={manageQuantity}
         cartRef={cartRef}
       />
-      <p>detalle de producto {productDetail.name}</p>
-
-
-
     </div >
   );
 
